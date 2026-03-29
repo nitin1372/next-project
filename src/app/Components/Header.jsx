@@ -10,6 +10,7 @@ import { useCart } from "../context/cartContext.js";
 import { onAuthStateChanged, signOut } from "firebase/auth";
 import auth from "@/firebase/auth";
 
+const SearchFallback = () => (
   <div className="h-10 w-full rounded-lg border border-[#dbe5ff] bg-[#f0f5ff] sm:h-12" />
 );
 
@@ -55,7 +56,6 @@ const Header = () => {
           </div>
 
           <div className="min-w-0 flex-1 md:max-w-xl lg:w-full lg:max-w-none lg:justify-self-center">
-            <Search />
             <Suspense fallback={<SearchFallback />}>
               <Search />
             </Suspense>
