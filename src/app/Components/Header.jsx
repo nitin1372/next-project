@@ -1,13 +1,17 @@
 "use client";
 
+
 import Image from "next/image";
 import Link from "next/link";
 import Search from "./Search";
-import { useEffect, useState } from "react";
+import { Suspense, useEffect, useState } from "react";
 import { FaBars, FaShoppingCart, FaTimes } from "react-icons/fa";
 import { useCart } from "../context/cartContext.js";
 import { onAuthStateChanged, signOut } from "firebase/auth";
 import auth from "@/firebase/auth";
+
+  <div className="h-10 w-full rounded-lg border border-[#dbe5ff] bg-[#f0f5ff] sm:h-12" />
+);
 
 const Header = () => {
   const { cart } = useCart();
@@ -52,6 +56,9 @@ const Header = () => {
 
           <div className="min-w-0 flex-1 md:max-w-xl lg:w-full lg:max-w-none lg:justify-self-center">
             <Search />
+            <Suspense fallback={<SearchFallback />}>
+              <Search />
+            </Suspense>
           </div>
 
           <div className="ml-auto hidden items-center justify-end gap-2 sm:gap-3 md:flex lg:ml-0 lg:justify-self-end">
