@@ -10,9 +10,11 @@ import { useCart } from "../context/cartContext.js";
 import { onAuthStateChanged, signOut } from "firebase/auth";
 import auth from "@/firebase/auth";
 
-const SearchFallback = () => (
-  <div className="h-10 w-full rounded-lg border border-[#dbe5ff] bg-[#f0f5ff] sm:h-12" />
-);
+const SearchFallback = () => {
+  return (
+    <div className="h-10 w-full rounded-lg border border-[#dbe5ff] bg-[#f0f5ff] sm:h-12" />
+  );
+};
 
 const Header = () => {
   const { cart } = useCart();
